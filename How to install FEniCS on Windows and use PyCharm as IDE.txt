@@ -40,5 +40,4 @@ If you have installed WSL2 most stuff should be working alright except matplotli
 
 Contact
 If this is not working for you, you should first of all see online whether someone else has had the same problem that you have had. Maybe there is a solution for your problem already. If that is not the case you can contact me via johannes.schaeffner@tum.de. I can however not promise a quick response and even then I am a mechanical engineer and not a software engineer so I might not be able to help.
-It would also be helpfull if you could update this guide with problems you have had and how you have managed to solve them. 
-
+It would also be helpfull if you could send me solutions to problems you have had so I can update this guide.
