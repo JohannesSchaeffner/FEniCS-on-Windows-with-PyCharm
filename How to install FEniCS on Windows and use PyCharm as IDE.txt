@@ -1,0 +1,44 @@
+How to install FEniCS on Windows and use PyCharm as IDE
+
+Enable the Windows Subsystem for Linux
+Open PowerShell as Administrator and run:
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+DO NOT UPGRADE TO WSL 2. For some reason it is not compatible with the packages we are interested in.
+Now restart your machine.
+
+Install your Linux distribution of choice
+I use Ubuntu and have not tested whether other Linux distributions work as well but do not see why they should not.
+The installation will take a bit. You will then have to create a user account and set a password. Remember this password well since you will need it again.
+To check that you have the correct version of WSL installed and in my case that Ubuntu is running on this version type the following into the windows power shell:
+wsl --list --verbose
+This will tell you which Linux distribution you have, whether it is running or not and which version of WSL it is using. If somehow the version is not WSL 1 type in
+wsl --set-version <distribution name> 1
+So in my case
+wsl --set-version Ubuntu 1
+
+Install Python
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.9
+python3.9 --version
+If your installation was successful it should tell you your version. The version I'm running is 3.9.0.
+
+Install FEniCS
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:fenics-packages/fenics
+sudo apt-get update
+sudo apt-get install fenics
+You can also install Anaconda to manage your different package combinations but if you intend to use PyCharm that is rather unnecessary as it has a build in package manager.
+Install PyCharm
+For this to work you need the professional version of PyCharm but since you work at TUM this is not an issue as all TUM employees and students have access to it.
+Its installation is pretty straightforward. Simply head to https://www.jetbrains.com/de-de/ create an account with your TUM email and verify yourself. Then download the professional version of PyCharm.
+In PyCharm create a new Project and in order to have it run on Ubuntu and not on Windows Press Str+Alt+S to access settings. Under Project choose Python Interpreter, click on the gear at the top right corner of the window, select add, choose WSL, select your Linux distribution and the Python interpreter path. In my case that is
+C:/Users/schae/AppData/Local/Packages/\\CanonicalGroupLimited.UbuntuonWindows\_79rhkp1fndgsc/LocalState/rootfs/usr/bin
+If everything is set up properly you should be able to run some FEniCS code now.
+If you have installed WSL2 most stuff should be working alright except matplotlib.
+
+Contact
+If this is not working for you, you should first of all see online whether someone else has had the same problem that you have had. Maybe there is a solution for your problem already. If that is not the case you can contact me via johannes.schaeffner@tum.de. I can however not promise a quick response and even then I am a mechanical engineer and not a software engineer so I might not be able to help.
+It would also be helpfull if you could update this guide with problems you have had and how you have managed to solve them. 
+
